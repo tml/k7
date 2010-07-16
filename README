@@ -36,7 +36,7 @@ extensions:
     allows to keep the extensions simple, make maintenance and usage easier.
 
   - Use JavaScript for objects: prefer writing pure-JavaScript modules that take
-    advantage of extension modules rather than putting everything in the
+    advantage of extension modules rather than putting everything in the C++
     extension. For example, a module providing a 'File' object should be written
     in pure JavaScript, and take advantage of the 'posix' API for the actual
     I/O.
@@ -45,10 +45,11 @@ extensions:
     library that is designed in the UNIX philosophy, that does not have too many
     dependencies and do on thing well (like 'libcurl', for instance).
 
-The k7 source code is separated in two main folders:
+The K7 source code is separated in two main folders:
 
-  - 'src' which contains the k7 main source code, which is basically the
-    interpeter, the module system and the macros.
+  - 'src' which contains the K7 main source code, which is basically the
+    interpreter enhanced with a couple of simple primitives and the
+    macros.
 
   - 'lib' which contains the JavaScript and extension modules source code, and
     which is laid out according to the modules hierarchy. For instance, the
@@ -61,6 +62,15 @@ To get started, you'll need a POSIX environment with a compiler, and
 >   make
 
 Should be sufficient to create the 'k7' interpreter, compiled with extensions.
+V8 will be downloaded automatically to your 'deps/v8' directory.
+
+You have a couple of options that you can activate:
+
+>   make compact    # Builds a compressed K7 executable
+>   make DEBUG=1    # Enables debugging mode
+>   make STATIC=1   # Embeds K7 modules within the executable
+>   make LIBTASK=1  # Embeds libtask and provides a 'yield' feature
+>   make LIBNODE=1  # Embeds libnode and provides a lot of async-network libraries
 
 --
 [V8]          V8 VM, <http://code.google.com/p/v8/> 

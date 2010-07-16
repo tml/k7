@@ -1,4 +1,8 @@
 deps/v8
+deps/node
 deps/shttpd/src/shttpd
+deps/libtask/primes
+deps/libtask/tcpproxy
+deps/libtask/testdelay
 k7
 build

@@ -1,3 +1,4 @@
+var print = system.shell.print
 var posix = system.posix
 
 var fd    = posix.fopen("posixtest.txt", "w")
@@ -13,5 +14,3 @@ var fd    = posix.popen("cat posixtest.txt", "r")
 var data  = posix.fread(1,1024,fd)
 print ("popen:" + data)
 posix.pclose(fd)
-
-
